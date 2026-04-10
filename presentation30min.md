@@ -900,14 +900,29 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 ---
 
-# Risorse per approfondire
+# Risorse per approfondire - framework
 
+**Framework:**
 - [GitHub Spec Kit](https://github.com/github/spec-kit) (Open Source, ufficiale GitHub)
-- [CodeSpeak](https://codespeak.dev/) (Linguaggio/workflow spec-first, AI-native)
 - [BMAD Method](https://github.com/bmad) (Enterprise, 21 agenti specializzati)
 - [GSD - Get Shit Done](https://github.com/gsd) (Solo dev, anti-burocrazia)
 - [Ralph Loop / Agent.OS](https://github.com/ralphloop) (CI/CD autonomi)
 - [LeanSpec](https://github.com/leanspec) (SDD leggero, <300 righe)
+
+---
+
+# Risorse per approfondire - tool
+
+**Tool:**
+- [CodeSpeak](https://codespeak.dev/) (Linguaggio/workflow spec-first, AI-native)
+- [Awesome Design MD](https://github.com/VoltAgent/awesome-design-md) 
+- [Awesome Design MD Skills](https://github.com/bergside/awesome-design-md-skills)
+
+---
+
+# Risorse per approfondire - letture
+
+**Letture:**
 - "Spec-Driven Development" - GitHub Blog
 - NIST AI Risk Management Framework
 
