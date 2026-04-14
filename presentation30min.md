@@ -468,7 +468,7 @@ Se avete alzato la mano tutte e tre le volte, questo talk è per voi.
 - **SDD:** Una metodologia dove le specifiche diventano artefatti eseguibili di prima classe.
 - Non scrivi codice. Scrivi il "contratto" (la specifica). L'AI genera il codice rispettando quel contratto.
 - **Se il prompt è una richiesta, la specifica è un contratto.**
-- Non è Waterfall: il ciclo è **Spec → Build → Review → Spec** in ore, non mesi.
+- Non è Waterfall: il ciclo è **Spec → Build → Review → Archive** in ore, non mesi.
 
 ---
 
@@ -501,7 +501,7 @@ Stack / Librerie vietate / Performance
 - [ ] Backward compatibility
 ```
 
-✅ Conciso (<300 righe) · ✅ Falsificabile · ❌ Mai vago ("Migliora il codice" non è una specifica)
+✅ Conciso (<300 righe) · ❌ Mai vago ("Migliora il codice" non è una specifica)
 
 ---
 
@@ -513,10 +513,12 @@ Stack / Librerie vietate / Performance
 ```markdown
 ## OBIETTIVO
 Implementare autenticazione JWT con scadenza 1 ora.
-## VINCOLI
-- Token: JWT (HS256), Scadenza: 1h access + 7gg refresh
-- Database: PostgreSQL
+## NON-GOAL
+- Non implementare refresh token (non richiesto)
 - NON USARE: OAuth, librerie terze non approvate
+## VINCOLI
+- Token: JWT (HS256), Scadenza: 1h accesso + 7gg refresh
+- Secret: preso da ENV
 ## OUTPUT ATTESO
 - [ ] API /auth/login ritorna 200
 - [ ] Token payload contiene: user_id, scopes
@@ -560,37 +562,43 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 # Framework SDD: il panorama
 
-- **La chiave è la disciplina, non il tool.** Si può fare "SDD artigianale" con `PROJECT.md` + `TASKS.md`.
-- I framework aiutano a scalare:
+ **La chiave è la disciplina, non il tool.** Si può fare "SDD artigianale" con `PROJECT.md` + `TASKS.md` + `DESIGN.MD` etc., oppure usare un framework.
 
 | Framework | Complessità | Target | Punti di Forza |
 | :--- | :--- | :--- | :--- |
-| **BMAD** | Alta | Full Enterprise | 21 agenti specializzati |
-| **GSD** | Bassa | Developer Veloce | Anti-burocrazia, sub-agenti puliti |
+| **OpenSpec** | Bassa | Developer Veloce | explore, propose, apply e archive |
+| **GetShitDone** | Bassa | Developer Veloce | Anti-burocrazia, sub-agenti puliti |
 | **GitHub Spec Kit** | Media | Standard Industry | Open-source, integrazione Copilot |
 | **Ralph Loop** | Media | CI/CD Autonomi | "Git as Memory", fresh start |
+| **BMAD** | Alta | Full Enterprise | 21 agenti specializzati |
 
 **Strumenti:** Claude Code, Aider, Cursor, Windsurf. Tutti convergono su file `.md` strutturati.
 
 ---
 
-# OpenSpec: loop minimale, impatto alto
+# OpenSpec: loop minimale, impatto alto, velocità massima
 
 - `init`: crea la struttura e il `PROJECT.md` nel repo.
 - `proposal`: ogni feature diventa una change con proposta, task e spec.
 - `review`: checkpoint umano prima di toccare codice.
 - `apply`: implementazione guidata di una singola change.
 - `archive`: chiusura della change e ripartenza sulla successiva.
-- In pratica: su una change media il ciclo sta in ~9 minuti, ma rende meglio con change piccole.
+
+L'obiettivo è abbattere i tempi di sviluppo con un flusso semplice
 
 ---
 
 # Quando il framework diventa frizione
 
-- Se passi più tempo sul rituale che sulla validazione, sei in over-process.
-- Segnali tipici: troppe fasi prima del primo commit utile, comandi da ricordare, nomenclatura rigida.
-- Progetti piccoli/medi: processo leggero + file chiari batte framework pesanti.
-- Progetti grandi/regolati: struttura forte utile, ma va misurato il costo operativo.
+- Se passi più tempo sul **rituale** che sulla **validazione**, sei in **over-process**.
+- Segnali tipici: **troppe fasi** prima del primo commit utile, comandi da **ricordare**, **nomenclatura rigida**.
+
+---
+
+# Come muoversi?
+
+- Progetti **piccoli/medi**: -> **processo leggero** + **file chiari** batte framework pesanti.
+- Progetti **grandi/regolati**: -> **struttura forte**, ma va misurato il costo operativo.
 
 ---
 
@@ -628,12 +636,11 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 ```
 progetto/
-├── .spec/
-│   ├── PROJECT.md      ← Contesto globale
-│   ├── CONVENTIONS.md  ← Regole (snake_case, no lib esterne...)
-│   └── specs/
-│       └── SPEC-001.md ← Prima feature
-└── src/
+├─ .spec/
+   ├── PROJECT.md      ← Contesto globale
+   ├── CONVENTIONS.md  ← Regole (snake_case, no lib esterne...)
+   └── specs/
+       └── SPEC-001.md ← Prima feature
 ```
 
 1. **Inizializzazione:** Crea `.spec/` con contesto globale e convenzioni.
@@ -660,17 +667,6 @@ Tu:  "Virgola, UTF-8, no PII, max 50k righe per file"
 
 ---
 
-# Pipeline team "leggera 
-## (senza framework rigido)
-
-- `PROJECT_DESCRIPTION.md`: richiesta cliente + vincoli tecnici.
-- `USER_STORIES.md`: storie approvabili dal business (anche 39 storie in ~2 minuti con Q&A).
-- `DATABASE_SCHEMA.md`: checkpoint separato prima dei task.
-- `PROJECT_PHASES.md`: task numerati con stato (`not started` / `partial` / `done`).
-- Sequenza efficace: storie -> schema DB -> task eseguibili.
-
----
-
 # Caso Reale: Vibecoding
 
 **PRIMA (Vibecoding, 2 ore di caos):**
@@ -693,7 +689,7 @@ Error: [log specifico] | File: OrderController.php:45-67
 ## NON TOCCARE
 src/Models/* | migration files
 ## VALIDAZIONE
-- [ ] Test suite passa | API v1 funziona | Performance < 200ms
+- [ ] Test suite passa | API v1 funziona
 ```
 
 ---
@@ -738,29 +734,15 @@ src/Models/* | migration files
 | **Efficienza Token** | Crescita esponenziale | Crescita lineare |
 | **Allineamento Requisiti** | Spesso divergente | Molto più allineato |
 
-- **Mantra:** "Run slow to run fast". Il tempo speso in specifica si recupera nel medio periodo.
-- **Investimento iniziale** più alto, ma meno bug, meno riscritture, onboarding più rapido.
+---
+
+# Run slow to run fast
+Il tempo speso in specifica si recupera nel medio periodo.
+Più alto, ma meno bug, meno riscritture, onboarding più rapido.
 
 ---
 
-# SWE-CI: L'AI sa mantenere il software?
-
-- I benchmark classici testano fix isolati: una soluzione "sporca" e un codice pulito passano lo stesso test.
-- **SWE-CI** misura la **manutenibilità nel tempo**: 100 task reali, 233 giorni di evoluzione, fino a 20 iterazioni consecutive.
-- Lo **zero-regression rate** rivela una realtà scomoda: la maggior parte dei modelli introduce bug fatali nel **75% dei casi**.
-- Solo Claude Opus raggiunge 0.76 — l'automazione della manutenzione a lungo termine resta una sfida aperta.
-- **Implicazione:** le specifiche strutturate (SDD) sono essenziali per guidare l'AI verso decisioni architetturali sostenibili, non solo fix immediati.
-
----
-
-<!-- _header: '' -->
-<!-- _backgroundImage: url('img/infografica-swe.webp') -->
-<!-- _paginate: false -->
-<!-- _footer: "" -->
-
----
-
-# CodeSpeak: un esempio di spec-first radicale
+# CodeSpeak: un esempio di SDD radicale
 
 - Creato da **Andrey Breslav**: non e` un semplice assistente, ma un linguaggio/workflow in cui mantieni la **specifica** e non il codice generato.
 - Flusso: file `.cs.md` -> `codespeak build` -> codice rigenerato e validato con i test.
@@ -842,15 +824,15 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 ---
 
+<!-- _backgroundImage: url('img/image16.png') -->
+
+---
+
 <!-- _header: '' -->
 <!-- _class: section-title -->
 <!-- _backgroundImage: url('img/infografica30min.webp') -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
-
----
-
-<!-- _backgroundImage: url('img/image16.png') -->
 
 ---
 
@@ -888,15 +870,6 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
     <p><https://github.com/matteobaccan/aiday2026></p>
   </div>
 </div>
-
----
-
-# Esempi reali di team di agenti
-
-1. **PR Validator**: controlla lunghezza e formato dei titoli PR su GitHub.
-2. **Team SEO**: ricerca web, scraping, sintesi FAQ con un leader finale.
-3. **Code Review parallela**: Claude, Gemini, GPT in parallelo + agente merger.
-4. **Memoria lunga**: agenti collegati a database vettoriali (es. PGVector).
 
 ---
 
