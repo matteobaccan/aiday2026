@@ -399,7 +399,7 @@ Nanni Moretti ci perculava già anni fa
 
 ---
 
-# La promessa (infranta) dell'AI Coding
+# La promessa infranta del VibeCoding
 
 - Tutti abbiamo provato quel brivido: chiedi a Claude o ChatGPT di scrivere uno script Python da zero. **Funziona al primo colpo.**
 - La sensazione: "Siamo tutti sviluppatori 10x adesso".
@@ -433,7 +433,7 @@ Se avete alzato la mano tutte e tre le volte, questo talk è per voi.
 
 - **Context Rot:** Più token in input = meno affidabilità in output.
 - Più la chat si allunga, più l'AI "dimentica" decisioni iniziali e ignora vincoli critici.
-- **Regola empirica:** se il prompt supera il 60% della context window, aspettati degradazione.
+- **Regola empirica:** se il prompt supera il 60% (scegliere comunque un valore a caso sopra il 50%) della context window, aspettati degradazione.
 - **Antidoto:** task piccoli, sessioni "fresh start", specifiche brevi e ripetibili.
 
 ---
@@ -443,7 +443,7 @@ Se avete alzato la mano tutte e tre le volte, questo talk è per voi.
 - Contesto "sporco" o ambiguo → l'AI riempie i vuoti con **assunzioni plausibili, ma errate**.
 - 3 sessioni di chat diverse generano 3 modi diversi di gestire gli errori. Nessuno sa qual è quello "giusto".
 - **Il vero rischio:** risposte *credibili* ma tecnicamente sbagliate. Passano la review superficiale, introducono bug sottili.
-- **Esempio:** regex email che accetta `user@.com`. 200 utenti registrati con email invalide.
+- **Esempio:** regex di validazione email che sembra perfetta, ma che accetta `user@.com`. 200 utenti registrati con email invalida: quanti di voi capiscono al volo una regex?
 - Debuggare codice AI scadente richiede spesso **più tempo che riscriverlo da zero**.
 
 ---
@@ -474,13 +474,13 @@ Se avete alzato la mano tutte e tre le volte, questo talk è per voi.
 
 # I tre pilastri dello SDD
 
-1. **Specifica come Fonte di Verità:** Ogni decisione è documentata in file persistenti (Markdown).
+1. **Specifica come Fonte di Verità:** Ogni decisione è documentata in file markdown persistenti.
 2. **Tracciabilità:** Le modifiche alle specifiche si propagano ai task e all'implementazione.
 3. **Riproducibilità:** La stessa specifica produce output verificabili contro criteri noti.
 
 **Come riduce le allucinazioni:** La specifica "ancora" l'AI alla realtà. Specificando librerie e pattern riduci le opzioni da migliaia a poche.
 - ❌ Vago: "Fammi un login"
-- ✅ Preciso: "JWT HS256, 1h scadenza, PostgreSQL, niente OAuth"
+- ✅ Preciso: "JWT HS256, 1h scadenza, niente OAuth"
 
 ---
 
@@ -545,7 +545,7 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 # Il cambio di ruolo dello sviluppatore
 
-- Da "scrittore di sintassi" a **Architetto di Specifiche** e **Reviewer**.
+- Da "scrittore di sintassi" a **Architetto di Specifiche** e **Reviewer** si tenta sempre di fare uno **Shift left**.
 - Il valore aggiunto non è più ricordare la sintassi di Python, ma definire _cosa_ costruire e _come_ verificare che sia corretto.
 - **Concretamente:** nel prossimo sprint, il deliverable non è il codice. È la specifica validata. Il codice è un effetto collaterale.
 - La responsabilità è tua: l'AI non fa la manutenzione tra 2 anni. SDD facilita la review perché sai esattamente cosa _doveva_ fare quel task.
@@ -572,7 +572,7 @@ Implementare autenticazione JWT con scadenza 1 ora.
 | **Ralph Loop** | Media | CI/CD Autonomi | "Git as Memory", fresh start |
 | **BMAD** | Alta | Full Enterprise | 21 agenti specializzati |
 
-**Strumenti:** Claude Code, Aider, Cursor, Windsurf. Tutti convergono su file `.md` strutturati.
+**Strumenti:** Claude Code, Gemini, Cursor, Windsurf, Copilot. Tutti convergono su file `.md` strutturati.
 
 ---
 
@@ -658,8 +658,8 @@ progetto/
 
 ```
 Tu:  "Genera export CSV degli ordini"
-AI:  "Quale delimitatore? Encoding? Include PII? Max righe?"
-Tu:  "Virgola, UTF-8, no PII, max 50k righe per file"
+AI:  "Quale delimitatore? Encoding? Max righe?"
+Tu:  "Virgola, UTF-8, max 50k righe per file"
 → Specifica completa in 2 minuti, non in 2 ore
 ```
 
@@ -744,10 +744,10 @@ Più alto, ma meno bug, meno riscritture, onboarding più rapido.
 
 # CodeSpeak: un esempio di SDD radicale
 
-- Creato da **Andrey Breslav**: non e` un semplice assistente, ma un linguaggio/workflow in cui mantieni la **specifica** e non il codice generato.
 - Flusso: file `.cs.md` -> `codespeak build` -> codice rigenerato e validato con i test.
 - Modalita` interessanti: **mixed mode** per convivere con codice manuale, **takeover** per estrarre spec da moduli legacy.
 
+- Creato da ~~Ajeje Brazorf~~ **Andrey Breslav**: non e` un semplice assistente, ma un linguaggio/workflow in cui mantieni la **specifica** e non il codice generato.
 ---
 
 # Perche' vale la pena osservarlo
@@ -769,6 +769,10 @@ Non è un "VS Vibecoding". Entrambi hanno spazio.
 | **Sistema legacy 50k righe** | 🔴 Caos | 🟢 Salvezza | SDD |
 | **Feature architettonale** | 🔴 Rischio alto | 🟢 Controllo | SDD |
 
+---
+
+# Supercazzola di Baccan
+
 ```
 IF (codice vive > 1 mese) OR (tocca > 1 persona)
     → Usa SDD
@@ -780,6 +784,8 @@ IF (codice vive > 1 mese) OR (tocca > 1 persona)
 
 > La specifica è il vero prodotto.
 > Il codice è solo la sua compilazione.
+
+Lo iniziano a pensare in molti: soprattutto i non programmatori
 
 ---
 
@@ -793,7 +799,7 @@ IF (codice vive > 1 mese) OR (tocca > 1 persona)
 
 # Consigli Pratici per Iniziare Domani
 
-**Passo 1 (Oggi):** Scegli un task medio. Scrivi un file `SPEC.md` a mano (10-15 righe).
+**Passo 1 (Oggi):** Scrivi un file `SPEC.md` a mano (10-15 righe).
 
 **Passo 2 (Domani):** Chiedi all'AI: "Generami il codice seguendo SOLO questo file". Forza la citazione della spec nel commit.
 
@@ -824,13 +830,17 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 ---
 
+<!-- _header: '' -->
+<!-- _class: section-title -->
 <!-- _backgroundImage: url('img/image16.png') -->
+<!-- _paginate: false -->
+<!-- _footer: "" -->
 
 ---
 
 <!-- _header: '' -->
 <!-- _class: section-title -->
-<!-- _backgroundImage: url('img/infografica30min.webp') -->
+<!-- _backgroundImage: url('img/speck-driven.jpeg') -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
@@ -873,6 +883,14 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 ---
 
+<!-- _header: '' -->
+<!-- _class: section-title -->
+<!-- _backgroundImage: url('img/infografica30min.webp') -->
+<!-- _paginate: false -->
+<!-- _footer: "" -->
+
+---
+
 # Risorse per approfondire - framework
 
 **Framework:**
@@ -911,3 +929,5 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 - Antigravity: per gestire il progetto GitHub
 - Marp: per la presentazione
 - Dario Ferrero <https://aitalk.it/> per l'analisi di CodeSpeak
+- Alessandro Giardina per le foto sullo Speck-Driven
+- E ovviamente, Andrej Karpathy per il Vibecoding
