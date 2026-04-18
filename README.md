@@ -1,21 +1,23 @@
-# Il Vibecoding è morto: viva lo Spec-Driven Development
+# Il Vibecoding e morto: viva lo Spec-Driven Development
 
-Repository per la presentazione "Il Vibecoding è morto: viva lo Spec-Driven Development" di Matteo Baccan, presentata alla **AI Day Conference 2026**.
+Repository della presentazione di Matteo Baccan per AI Day Conference 2026.
 
-## 📅 AI Day Conference 2026
+Messaggio centrale: il Vibecoding funziona per prototipi veloci, ma non scala su sistemi reali. Per lavorare bene con l'AI serve passare a uno sviluppo guidato da specifiche.
 
-**17 Aprile 2026 - Roma**
+## Talk in breve
 
-Innovating with AI and Cloud.
+- Titolo: Il Vibecoding e morto: viva lo Spec-Driven Development
+- Evento: AI Day Conference 2026
+- Data: 17 aprile 2026
+- Location: Roma
+- Durata deck in repo: 30 minuti
 
-### Agenda
+## Agenda dettagliata AI Day 2026
 
-Programma dettagliato di AI Day Conference 2026.
+Data: venerdi 17/04/2026
+Location: Roma (Rome)
 
-**Data:** venerdi 17/04/2026  
-**Location:** Roma (Rome)
-
-#### Fasce comuni
+### Fasce comuni
 
 | Orario | Attivita | Room |
 |:---|:---|:---|
@@ -24,7 +26,7 @@ Programma dettagliato di AI Day Conference 2026.
 | 13:00 | Lunch (60 min) | Room 1 |
 | 15:40 | Coffee Break (30 min) | Room 1 |
 
-#### Sessioni parallele
+### Sessioni parallele
 
 | Orario | Room | Sessione | Speaker | Livello / Lingua |
 |:---|:---|:---|:---|:---|
@@ -45,69 +47,89 @@ Programma dettagliato di AI Day Conference 2026.
 | 16:10 | Room 2 | Agents Talking to Agents: Inside the A2A Protocol | Massimo Crippa | Intermediate, Italiano |
 | 17:00 | Room 1 | Da GitHub Spark a .NET Aspire con un Copilot Agent: script deterministici + skills | Francesco Gallo | Intermediate, Italiano |
 
-## 📄 Versioni della Presentazione
+## Slide disponibili
 
-| File | Durata | Slide contenuto | Note |
-|:---|:---|:---|:---|
-| `presentation.md` | ~50 min | ~90 | Versione completa con tutti gli approfondimenti |
-| `presentation30min.md` | ~30 min | ~50 | Versione compatta ottimizzata per slot da 30 minuti |
+- [presentation30min.md](presentation30min.md): versione talk da 30 minuti (con appendice risorse)
 
-Entrambe le versioni includono 3 slide appendice (non presentate) con link e risorse per chi scarica le slide dopo l'evento.
+Le slide sono generate con Marp e usano asset presenti nella cartella [img](img).
 
-## 📄 Contenuti della Presentazione
+## Foto evento
 
-La presentazione esplora i limiti dell'approccio "Vibecoding" (programmare a sentimento con l'AI) e propone lo **Spec-Driven Development (SDD)** come metodologia professionale per lo sviluppo software assistito da AI.
+Le foto backstage e di conferenza sono raccolte nella cartella [foto](foto).
 
-### Punti Chiave
+### Talk con slide DotNetCode
 
-1. **Il Problema del Vibecoding**:
-    * L'illusione di produttività data dagli script generati al primo colpo.
-    * Problemi di scalabilità su sistemi Enterprise e legacy.
-    * **Context Rot**: L'AI perde il filo e genera codice incoerente o allucinato man mano che la chat si allunga.
-    * Allucinazioni verosimili: il rischio peggiore sono le risposte *credibili* ma tecnicamente sbagliate.
+![Talk con slide DotNetCode](foto/aiday2026-talk-dotnetcode-slide.jpeg)
 
-2. **Spec-Driven Development (SDD)**:
-    * Le specifiche (in Markdown) diventano artefatti eseguibili.
-    * L'AI agisce come un implementatore che segue un contratto preciso.
-    * Vantaggi: Tracciabilità, Riproducibilità, Zero Context Rot.
-    * Il ruolo dello sviluppatore cambia: da scrittore di sintassi ad **Architetto di Specifiche**.
+### Ingresso Microsoft
 
-3. **Framework e Strumenti**:
-    * **BMAD**: Per contesti Enterprise complessi (21 agenti specializzati).
-    * **GSD (Get Shit Done)**: Per sviluppatori singoli che vogliono velocità.
-    * **GitHub Spec Kit**: Lo standard open source per l'ecosistema GitHub.
-    * **Ralph Loop / Agent.OS**: Per flussi CI/CD autonomi ("Git as Memory").
-    * **CodeSpeak**: Esempio radicale di linguaggio e workflow "spec-first" (AI-native).
+![Ingresso Microsoft](foto/aiday2026-microsoft-entrance.jpeg)
 
-4. **Workflow Pratico in 5 Step**:
-    * Inizializzazione della cartella `.spec/` con contesto e convenzioni.
-    * Drafting iterativo dei requisiti con l'AI.
-    * Generazione della specifica tecnica con checkpoint umano.
-    * Breaking down in task atomici e testabili.
-    * Loop di implementazione con l'Agente AI.
+### Badge guest Matteo Baccan
 
-5. **Applicazioni Concrete**:
-    * SDD su legacy code (50.000 righe): analisi, protezione con test, refactoring incrementale.
-    * Conformità e documentazione (GDPR, ISO 9001, AI Act).
-    * ROI: riduzione tempi di debugging, efficienza token, onboarding più rapido.
-    * **Benchmark SWE-CI**: Valutazione dell'AI sulla manutenibilità a lungo termine (zero-regression rate), che rende l'SDD una necessità assoluta.
+![Badge guest Matteo Baccan](foto/aiday2026-guest-badge-matteo-baccan.jpeg)
 
-## 🛠️ Tool Utilizzati
+### Speaker room
 
-Questa presentazione è stata realizzata utilizzando:
+![Speaker room](foto/aiday2026-backstage-workroom.jpeg)
 
-* **BGE** (Brigata dei Geek Estinti) — Puntata 98 e 99 per gli spunti
-* **Gemini** — Per la riformattazione
-* **Nano Banana Pro** — Per le immagini
-* **Claude** — Per la prima scaletta
-* **NotebookLM** — Per i riassunti dei podcast e video
-* **Antigravity** — Per gestire il progetto GitHub
-* **Marp** — Per la generazione delle slide
-* **Dario Ferrero** — Per l'analisi di CodeSpeak (<https://aitalk.it/>)
+### Sala conferenza e pubblico
 
-## 👤 Speaker
+![Sala conferenza e pubblico](foto/aiday2026-conference-room-audience.jpeg)
 
-**Matteo Baccan**
+## Struttura del contenuto
 
-* Sito web: [baccan.it](https://www.baccan.it)
-* Quote: *"Smetti di chattare, inizia a governare."*
+La presentazione segue questo percorso:
+
+1. Vibecoding: promessa iniziale e limiti pratici
+2. Context Rot e allucinazioni credibili
+3. Spec-Driven Development come approccio operativo
+4. Workflow SDD in 5 step (spec, task, implementazione, review)
+5. Framework e tool nel panorama attuale
+6. SDD su legacy, compliance e ROI
+7. Risorse per approfondire
+
+## Idee chiave
+
+- Se il prompt e una richiesta, la specifica e un contratto.
+- Il codice e un effetto collaterale: il vero prodotto e la specifica.
+- Run slow to run fast: il tempo speso in specifica riduce debug e rework.
+- Se il codice vive oltre un mese o viene toccato da piu persone, conviene SDD.
+
+## Workflow SDD (sintesi)
+
+1. Inizializza una cartella `.spec/` con contesto e convenzioni.
+2. Fai drafting dei requisiti con l'AI.
+3. Congela una specifica tecnica in Markdown.
+4. Rompi la specifica in task piccoli, testabili e committabili.
+5. Esegui implementazione e review un task alla volta.
+
+## Framework e risorse citate
+
+- GitHub Spec Kit: https://github.com/github/spec-kit
+- BMAD Method: https://github.com/bmad
+- Ralph Loop / Agent.OS: https://github.com/ralphloop
+- CodeSpeak: https://codespeak.dev/
+- Awesome Design MD: https://github.com/VoltAgent/awesome-design-md
+- Awesome Design MD Skills: https://github.com/bergside/awesome-design-md-skills
+
+## Strumenti usati per il deck
+
+- BGE (Brigata dei Geek Estinti), puntate 98 e 99
+- Gemini (riformattazione)
+- Nano Banana Pro (immagini)
+- Claude (prima scaletta)
+- NotebookLM (riassunti)
+- Antigravity (gestione progetto)
+- Marp (render slide)
+
+## Ringraziamenti
+
+- Dario Ferrero per l'analisi di CodeSpeak: https://aitalk.it/
+- Alessandro Giardina per le foto sullo Speck-Driven
+
+## Speaker
+
+- Matteo Baccan
+- Sito: https://www.baccan.it
+- Quote: "Smetti di chattare, inizia a governare."

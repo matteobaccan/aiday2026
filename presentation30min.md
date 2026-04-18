@@ -228,7 +228,7 @@ style: |
     top: 12px;
     width: 120px;
     height: 120px;
-    background-image: url('img/hdphoto1.png');
+    background-image: url('img/ai-network-icon.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -572,7 +572,7 @@ Implementare autenticazione JWT con scadenza 1 ora.
 | **Ralph Loop** | Media | CI/CD Autonomi | "Git as Memory", fresh start |
 | **BMAD** | Alta | Full Enterprise | 21 agenti specializzati |
 
-**Strumenti:** Claude Code, Gemini, Cursor, Windsurf, Copilot. Tutti convergono su file `.md` strutturati.
+**Strumenti:** Claude Code, Gemini, Cursor, Copilot. Tutti convergono su file `.md` strutturati.
 
 ---
 
@@ -750,7 +750,7 @@ Più alto, ma meno bug, meno riscritture, onboarding più rapido.
 - Creato da ~~Ajeje Brazorf~~ **Andrey Breslav**: non e` un semplice assistente, ma un linguaggio/workflow in cui mantieni la **specifica** e non il codice generato.
 ---
 
-# Perche' vale la pena osservarlo
+# Perché vale la pena osservarlo
 
 - Segnala una direzione chiara: dai framework SDD ai **linguaggi AI-native** progettati per esprimere intento.
 - Nei case study pubblici, il codice si riduce spesso di **6x-10x**, spostando review e governance sulla spec.
@@ -832,7 +832,7 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 <!-- _header: '' -->
 <!-- _class: section-title -->
-<!-- _backgroundImage: url('img/image16.png') -->
+<!-- _backgroundImage: url('img/qa-session-cover.png') -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
@@ -840,7 +840,7 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 <!-- _header: '' -->
 <!-- _class: section-title -->
-<!-- _backgroundImage: url('img/speck-driven.jpeg') -->
+<!-- _backgroundImage: url('img/speck-driven-design.jpeg') -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
@@ -849,7 +849,7 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 # Votate
 
 <div style="display:flex;justify-content:center;align-items:center;height:62vh;overflow:hidden;">
-  <img src="img/image18.png" alt="Votate" width="500" height="500" style="width:500px !important;height:500px !important;max-width:500px !important;max-height:500px !important;object-fit:contain;" />
+  <img src="img/vote-qr-code.png" alt="Votate" width="500" height="500" style="width:500px !important;height:500px !important;max-width:500px !important;max-height:500px !important;object-fit:contain;" />
 </div>
 
 ---
@@ -870,12 +870,12 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 
 <div class="qr-grid">
   <div class="qr-card">
-    <img src="img/baccan.it.png" alt="QR code per baccan.it" />
+    <img src="img/baccan-it-qr.png" alt="QR code per baccan.it" />
     <strong>baccan.it</strong>
     <p><https://www.baccan.it></p>
   </div>
   <div class="qr-card">
-    <img src="img/aiday.png" alt="QR code per il repository GitHub delle slide" />
+    <img src="img/github-repo-qr.png" alt="QR code per il repository GitHub delle slide" />
     <strong>Repo GitHub</strong>
     <p><https://github.com/matteobaccan/aiday2026></p>
   </div>
