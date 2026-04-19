@@ -1,8 +1,8 @@
 # Il Vibecoding e morto: viva lo Spec-Driven Development
 
-Repository della presentazione di Matteo Baccan per AI Day Conference 2026.
+In questo repository raccolgo la mia presentazione per AI Day Conference 2026.
 
-Messaggio centrale: il Vibecoding funziona per prototipi veloci, ma non scala su sistemi reali. Per lavorare bene con l'AI serve passare a uno sviluppo guidato da specifiche.
+Il messaggio centrale che porto e' questo: il Vibecoding funziona per prototipi veloci, ma non scala su sistemi reali. Per lavorare bene con l'AI propongo di passare a uno sviluppo guidato da specifiche.
 
 ## Talk in breve
 
@@ -51,11 +51,11 @@ Location: Roma (Rome)
 
 - [presentation30min.md](presentation30min.md): versione talk da 30 minuti (con appendice risorse)
 
-Le slide sono generate con Marp e usano asset presenti nella cartella [img](img).
+Genero le slide con Marp e uso gli asset presenti nella cartella [img](img).
 
 ## Foto evento
 
-Le foto backstage e di conferenza sono raccolte nella cartella [foto](foto).
+Raccolgo le foto backstage e di conferenza nella cartella [foto](foto).
 
 ### Talk con slide DotNetCode
 
@@ -79,7 +79,7 @@ Le foto backstage e di conferenza sono raccolte nella cartella [foto](foto).
 
 ## Struttura del contenuto
 
-La presentazione segue questo percorso:
+In questa presentazione seguo questo percorso:
 
 1. Vibecoding: promessa iniziale e limiti pratici
 2. Context Rot e allucinazioni credibili
@@ -91,18 +91,18 @@ La presentazione segue questo percorso:
 
 ## Idee chiave
 
-- Se il prompt e una richiesta, la specifica e un contratto.
-- Il codice e un effetto collaterale: il vero prodotto e la specifica.
-- Run slow to run fast: il tempo speso in specifica riduce debug e rework.
-- Se il codice vive oltre un mese o viene toccato da piu persone, conviene SDD.
+- Sostengo che se il prompt e una richiesta, la specifica e un contratto.
+- Porto l'idea che il codice sia un effetto collaterale: il vero prodotto e la specifica.
+- Uso il principio run slow to run fast: il tempo speso in specifica riduce debug e rework.
+- Mostro che se il codice vive oltre un mese o viene toccato da piu persone, conviene SDD.
 
 ## Workflow SDD (sintesi)
 
-1. Inizializza una cartella `.spec/` con contesto e convenzioni.
-2. Fai drafting dei requisiti con l'AI.
-3. Congela una specifica tecnica in Markdown.
-4. Rompi la specifica in task piccoli, testabili e committabili.
-5. Esegui implementazione e review un task alla volta.
+1. Inizializzo una cartella `.spec/` con contesto e convenzioni.
+2. Faccio drafting dei requisiti con l'AI.
+3. Congelo una specifica tecnica in Markdown.
+4. Rompo la specifica in task piccoli, testabili e committabili.
+5. Eseguo implementazione e review un task alla volta.
 
 ## Framework e risorse citate
 
@@ -114,6 +114,8 @@ La presentazione segue questo percorso:
 - Awesome Design MD Skills: https://github.com/bergside/awesome-design-md-skills
 
 ## Strumenti usati per il deck
+
+Per costruire questo deck ho usato:
 
 - BGE (Brigata dei Geek Estinti), puntate 98 e 99
 - Gemini (riformattazione)
