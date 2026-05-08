@@ -53,6 +53,18 @@ Location: Roma (Rome)
 
 Genero le slide con Marp e uso gli asset presenti nella cartella [img](img).
 
+## Risultati del voto
+
+I risultati del voto del talk sono disponibili a questo indirizzo: [https://vote.dotnetdev.it/vote/7gjirbtm/1179824/results](https://vote.dotnetdev.it/vote/7gjirbtm/1179824/results)
+
+Totale voti: 30.
+
+| Categoria | Excellent | Very Good | Good | Fair | Poor | Media |
+|:---|---:|---:|---:|---:|---:|---:|
+| Overall | 27 | 2 | 1 | 0 | 0 | 4,87 / 5 |
+| Content | 27 | 2 | 1 | 0 | 0 | 4,87 / 5 |
+| Presentation | 26 | 4 | 0 | 0 | 0 | 4,87 / 5 |
+
 ## Foto evento
 
 Raccolgo le foto backstage e di conferenza nella cartella [foto](foto).
